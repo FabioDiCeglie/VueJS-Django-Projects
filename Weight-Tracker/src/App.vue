@@ -23,7 +23,19 @@ const addWeight = () => {
 </script>
 
 <template>
-  <h1>Hello</h1>
+  <main>
+    <h1>Weight Tracker</h1>
+
+    <div class="current">
+      <span>{{ currentWeight.weight }}</span>
+      <small>Current weight (kg)</small>
+    </div>
+
+    <form @submit.prevent="addWeight">
+      <input type="number" step="0.1" v-model="weightInput" />
+      <input type="submit" value="Add weight" />
+    </form>
+  </main>
 </template>
 
 <style scoped></style>
