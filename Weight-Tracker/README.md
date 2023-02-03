@@ -1,1 +1,1 @@
-# Weight Tracker App with VUEJS
+# Weight Tracker App with VueJS
