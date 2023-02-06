@@ -46,6 +46,7 @@ export default {
   components: {},
   mounted() {
     this.getLatestProducts();
+    document.title = "Homepage";
   },
   methods: {
     async getLatestProducts() {

@@ -51,7 +51,10 @@ export default {
       const product_slug = this.$route.params.product_slug;
       await axios
         .get(`api/v1/products/${category_slug}/${product_slug}`)
-        .then((resp) => (this.product = resp.data))
+        .then((resp) => {
+          this.product = resp.data;
+          document.title = this.product.name;
+        })
         .catch((err) => console.log(err));
       this.$store.commit("setIsLoading", false);
     },
