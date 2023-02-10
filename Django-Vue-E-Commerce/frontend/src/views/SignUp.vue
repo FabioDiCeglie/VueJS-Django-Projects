@@ -93,7 +93,7 @@ export default {
               position: "bottom-right",
             });
 
-            // this.$router.push("/log-in");
+            this.$router.push("/log-in");
           })
           .catch((error) => {
             if (error.response) {
