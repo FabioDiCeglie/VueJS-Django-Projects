@@ -56,8 +56,14 @@
               <router-link to="/my-account" class="button is-light"
                 >My account</router-link
               >
-              <router-link to="/log-in" class="button is-light"
+              <router-link
+                to="/log-in"
+                class="button is-light"
+                v-if="isAutenthicated"
                 >Log in</router-link
+              >
+              <router-link to="/log-" class="button is-light" v-else
+                >Log out</router-link
               >
 
               <router-link to="/cart" class="button is-success">
@@ -97,6 +103,7 @@ export default {
       cart: {
         items: [],
       },
+      isAutenthicated: false,
     };
   },
   beforeCreate() {
@@ -106,12 +113,14 @@ export default {
 
     if (token) {
       axios.defaults.headers.common["Authorization"] = "Token" + token;
+      this.$store.commit("setToken", token);
     } else {
       axios.defaults.headers.common["Authorization"] = "";
     }
   },
   mounted() {
     this.cart = this.$store.state.cart;
+    this.isAutenthicated = this.$store.state.isAutenthicated;
   },
   computed: {
     cartTotalLength() {
