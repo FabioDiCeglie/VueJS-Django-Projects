@@ -53,18 +53,17 @@
 
           <div class="navbar-item">
             <div class="buttons">
-              <router-link to="/my-account" class="button is-light"
-                >My account</router-link
-              >
-              <router-link
-                to="/log-in"
-                class="button is-light"
-                v-if="isAutenthicated"
-                >Log in</router-link
-              >
-              <router-link to="/log-" class="button is-light" v-else
-                >Log out</router-link
-              >
+              <template v-if="$store.state.isAuthenticated">
+                <router-link to="/my-account" class="button is-light"
+                  >My account</router-link
+                >
+              </template>
+
+              <template v-else>
+                <router-link to="/log-in" class="button is-light"
+                  >Log in</router-link
+                >
+              </template>
 
               <router-link to="/cart" class="button is-success">
                 <span class="icon"><i class="fas fa-shopping-cart"></i></span>
@@ -103,7 +102,7 @@ export default {
       cart: {
         items: [],
       },
-      isAutenthicated: false,
+      isAuthenticated: false,
     };
   },
   beforeCreate() {
@@ -120,7 +119,6 @@ export default {
   },
   mounted() {
     this.cart = this.$store.state.cart;
-    this.isAutenthicated = this.$store.state.isAutenthicated;
   },
   computed: {
     cartTotalLength() {
