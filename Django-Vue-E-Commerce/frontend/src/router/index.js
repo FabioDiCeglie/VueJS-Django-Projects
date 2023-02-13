@@ -7,6 +7,7 @@ import Search from "@/views/Search.vue";
 import Cart from "@/views/Cart.vue";
 import SignUp from "@/views/SignUp.vue";
 import LogIn from "@/views/LogIn.vue";
+import MyAccount from "@/views/MyAccount.vue";
 
 const routes = [
   {
@@ -52,6 +53,11 @@ const routes = [
     path: "/log-in",
     name: "LogIn",
     component: LogIn,
+  },
+  {
+    path: "/my-account",
+    name: "MyAccount",
+    component: MyAccount,
   },
 ];
 
