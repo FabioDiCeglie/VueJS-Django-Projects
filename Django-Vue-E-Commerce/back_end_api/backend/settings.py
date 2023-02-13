@@ -27,6 +27,8 @@ DEBUG = True
 
 ALLOWED_HOSTS = []
 
+STRIPE_SECRET_KEY = "sk_test_51Mb7DsJQDlbdWK6uu0XTkVvCzTkfAZwbdz2cbirzDa5uBWoO5BEgcCtRfVgmlOvofLzHJ0fKTOQPwzjQHH6nJqNU00dsaZh0Z6"
+
 
 # Application definition
 
@@ -41,7 +43,8 @@ INSTALLED_APPS = [
     'rest_framework.authtoken',
     'corsheaders',
     'djoser',
-    'products'
+    'products',
+    'order'
 ]
 
 CORS_ALLOWED_ORIGINS = [
