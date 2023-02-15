@@ -13,6 +13,12 @@
 
       <div class="column is-12">
         <h2 class="subtitle">My orders</h2>
+
+        <OrderSummary
+          v-for="order in orders"
+          v-bind:key="order.id"
+          v-bind:order="order"
+        />
       </div>
     </div>
   </div>
@@ -20,9 +26,23 @@
 
 <script>
 import axios from "axios";
+import OrderSummary from "@/components/OrderSummary.vue";
 
 export default {
   name: "MyAccount",
+  components: {
+    OrderSummary,
+  },
+  data() {
+    return {
+      orders: [],
+    };
+  },
+  mounted() {
+    document.title = "My account";
+
+    this.getMyOrders();
+  },
   methods: {
     logout() {
       axios.defaults.headers.common["Authorization"] = "";
