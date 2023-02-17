@@ -81,11 +81,18 @@ form input[type="submit"] {
   transition: 200ms linear;
   border-left: 3px solid transparent;
 }
+@media (max-width: 420px) {
+  form input[type="submit"] {
+    padding: 0.5rem 0.5rem;
+    font-size: 1rem;
+  }
+}
 form input[type="submit"]:hover {
   background-color: white;
   color: blue;
   border-left-color: blue;
 }
+
 .canvas-box {
   width: 100%;
   max-width: 720px;
