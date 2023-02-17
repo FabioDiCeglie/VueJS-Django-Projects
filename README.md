@@ -1,6 +1,6 @@
-## Weight-Tracker
+# Weight-Tracker
 
-Weight Tracker App
+## Weight Tracker App
 
 This is a weight tracker app built using VueJS and deployed on Vercel. With this app, you can easily track your weight progress.
 
