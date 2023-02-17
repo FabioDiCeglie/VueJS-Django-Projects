@@ -7,10 +7,10 @@ This is a weight tracker app built using VueJS and deployed on Vercel. With this
 Getting Started
 To get started with the app, simply download or clone the repository to your local machine. Then, navigate to the project directory and run the following commands:
 
-`
+```
 npm install
 npm run dev
-`
+```
 This will start the app on your local server, and you can access it.
 
 Deployment
