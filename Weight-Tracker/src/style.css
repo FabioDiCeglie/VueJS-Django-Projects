@@ -68,6 +68,28 @@ form input[type="number"] {
   padding: 1rem 1.5rem;
   font-size: 1.25rem;
 }
+.remove-weight-button {
+  appearance: none;
+  outline: none;
+  border: none;
+  cursor: pointer;
+  background-color: blue;
+  padding: 0.5rem 1rem;
+  color: white;
+  font-size: 1.25rem;
+  font-weight: 700;
+  transition: 200ms linear;
+  border-left: 3px solid transparent;
+  margin-top: 1rem;
+  width: 12rem;
+  border-radius: 0.5rem;
+}
+@media (max-width: 420px) {
+  .remove-weight-button {
+    padding: 0.5rem 0.5rem;
+    font-size: 1rem;
+  }
+}
 form input[type="submit"] {
   appearance: none;
   outline: none;

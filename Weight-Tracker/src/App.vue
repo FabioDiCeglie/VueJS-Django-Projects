@@ -35,6 +35,11 @@ const addWeight = () => {
   localStorageWeights = localStorage.getItem("weights");
 };
 
+const removeWeight = () => {
+  localStorage.removeItem("weights");
+  window.location.reload();
+};
+
 watch(
   weights,
   (newWeights) => {
@@ -116,6 +121,11 @@ watch(
           </li>
         </ul>
       </div>
+      <input
+        @click="removeWeight()"
+        value="Remove weight"
+        class="remove-weight-button"
+      />
     </div>
   </main>
 </template>
