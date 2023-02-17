@@ -16,13 +16,16 @@ const currentWeight = computed(
 
 let localStorageWeights = localStorage.getItem("weights");
 if (weights.value.length === 0) {
-  JSON.parse(localStorageWeights).map((weight) => {
-    weights.value.push({
-      weight: weight.value,
-      date: weight.date,
+  if (localStorageWeights) {
+    JSON.parse(localStorageWeights).map((weight) => {
+      weights.value.push({
+        weight: weight.weight,
+        date: weight.date,
+      });
     });
-  });
+  }
 }
+
 const addWeight = () => {
   weights.value.push({
     weight: weightInput.value,
@@ -30,7 +33,6 @@ const addWeight = () => {
   });
   localStorage.setItem("weights", JSON.stringify(weights.value));
   localStorageWeights = localStorage.getItem("weights");
-  console.log(JSON.parse(localStorageWeights));
 };
 
 watch(
@@ -97,7 +99,9 @@ watch(
       <input type="submit" value="Add weight" />
     </form>
 
-    <div v-if="weights && weights.length > 0">
+    <div
+      v-if="localStorageWeights && JSON.parse(localStorageWeights).length > 0"
+    >
       <h2>Last 7 days</h2>
       <div class="canvas-box">
         <canvas ref="weightChartEl"></canvas>
