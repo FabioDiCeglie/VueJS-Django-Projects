@@ -14,11 +14,23 @@ const currentWeight = computed(
   () => weights.value.sort((a, b) => b.date - a.date)[0] || { weight: 0 }
 );
 
+let localStorageWeights = localStorage.getItem("weights");
+if (weights.value.length === 0) {
+  JSON.parse(localStorageWeights).map((weight) => {
+    weights.value.push({
+      weight: weight.value,
+      date: weight.date,
+    });
+  });
+}
 const addWeight = () => {
   weights.value.push({
     weight: weightInput.value,
     date: new Date().getTime(),
   });
+  localStorage.setItem("weights", JSON.stringify(weights.value));
+  localStorageWeights = localStorage.getItem("weights");
+  console.log(JSON.parse(localStorageWeights));
 };
 
 watch(
@@ -94,7 +106,7 @@ watch(
       <div class="weight-history">
         <h2>Weight History</h2>
         <ul>
-          <li v-for="weight in weights">
+          <li v-for="weight in JSON.parse(localStorageWeights)">
             <span>{{ weight.weight }}kg </span>
             <small>{{ new Date(weight.date).toLocaleDateString() }}</small>
           </li>
