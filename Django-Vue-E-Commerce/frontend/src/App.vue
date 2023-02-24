@@ -75,11 +75,13 @@
       </div>
     </nav>
 
-    <div
-      class="is-loading-bar has-text-centered"
-      v-bind:class="{ 'is-loading': $store.state.isLoading }"
-    >
-      <div class="lds-dual-ring"></div>
+    <div v-if="$store.state.isLoading" class="center">
+      <div
+        class="loading-box"
+        v-bind:class="{ 'is-loading': $store.state.isLoading }"
+      >
+        <div class="loader"></div>
+      </div>
     </div>
 
     <section class="section">
@@ -136,40 +138,48 @@ export default {
 <style lang="scss">
 @import "../node_modules/bulma";
 
-.lds-dual-ring {
-  display: inline-block;
-  width: 80px;
-  height: 80px;
+.loader {
+  left: -100%;
+  animation: load 3s linear infinite;
 }
 
-.lds-dual-ring:after {
-  content: " ";
-  display: block;
-  width: 64px;
-  height: 64px;
-  margin: 8px;
-  border-radius: 50%;
-  border: 6px solid #ccc;
-  border-color: #ccc transparent #ccc transparent;
-  animation: lds-dual-ring 1.2s linear infinite;
-}
-
-@keyframes lds-dual-ring {
+@keyframes load {
   0% {
-    transform: rotate(0deg);
+    left: -100%;
   }
   100% {
-    transform: rotate(360deg);
+    left: 100%;
   }
 }
-
-.is-loading-bar {
-  height: 0;
+.loading-box {
+  width: 400px;
+  height: 50px;
+  border-radius: 50px;
+  border: 2px solid #ededed;
   overflow: hidden;
-  -webkit-transition: all 0.3s;
-  transition: all 0.3s;
-  &.is-loading {
-    height: 80px;
+}
+
+.loader {
+  width: 100%;
+  height: 100%;
+  border-radius: 50px;
+  background: linear-gradient(45deg, #b6b5ff, #ff9797);
+  left: 0%;
+}
+
+.center {
+  display: flex;
+  justify-content: center;
+  margin-top: 15%;
+  margin-bottom: 15%;
+}
+
+@media (max-width: 420px) {
+  .center {
+    display: flex;
+    justify-content: center;
+    margin-top: 20%;
+    margin-bottom: 30%;
   }
 }
 </style>
