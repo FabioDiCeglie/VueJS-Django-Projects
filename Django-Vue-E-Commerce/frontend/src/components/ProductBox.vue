@@ -1,7 +1,7 @@
 <template>
   <div class="column is-3">
     <div class="box">
-      <figure class="image mb-4">
+      <figure class="image mb-4 is-4by5">
         <img :src="product.image" />
       </figure>
 

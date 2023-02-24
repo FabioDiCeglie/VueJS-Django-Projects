@@ -2,7 +2,7 @@
   <div class="page-product">
     <div class="columns is-multiline">
       <div class="column is-9">
-        <figure class="image mb-6">
+        <figure class="image mb-6 is-4by5">
           <img v-bind:src="product.image" />
         </figure>
 

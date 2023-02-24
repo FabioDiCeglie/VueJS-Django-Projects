@@ -2,7 +2,7 @@
   <div id="wrapper">
     <nav class="navbar is-dark">
       <div class="navbar-brand">
-        <router-link to="/" class="navbar-item">Welcome</router-link>
+        <router-link to="/" class="navbar-item">Home</router-link>
 
         <a
           class="navbar-burger"
